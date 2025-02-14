@@ -14,10 +14,13 @@
     "@emotion/styled": "^11.14.0",
     "@mui/icons-material": "^6.4.4",
     "@mui/material": "^6.4.4",
+    "@tailwindcss/vite": "^4.0.6",
     "esbuild": "^0.25.0",
     "json-server": "^1.0.0-beta.3",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "tailwindcss": "^4.0.6",
+    "untitled1": "file:"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.26.3",

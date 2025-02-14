@@ -9,5 +9,33 @@
   ],
   "profile": {
     "name": "typicode"
-  }
+  },
+  
+  "events": [
+    {
+      "id": "1",
+      "title": "a title",
+      "description": "a description",
+      "location": "a location",
+      "date": "a date",
+      "time": "a time",
+      "image": "./src/assets/events/Pool_Party.jpg",
+      "price": 100,
+      "symbol": "€",
+      "currency": "EUR",
+      "capacity": 10
+    },
+    {
+      "id": "2",
+      "title": "Sacré bousin",
+      "description": "another description",
+      "location": "Sterb",
+      "date": "that late",
+      "time": "too late",
+      "image": "./src/assets/events/event_2019.jpg",
+      "price": 100,
+      "symbol": "€",
+      "currency": "EUR",
+      "capacity": 10}
+  ]
 }
