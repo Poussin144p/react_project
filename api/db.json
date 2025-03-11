@@ -17,25 +17,39 @@
       "title": "a title",
       "description": "a description",
       "location": "a location",
-      "date": "a date",
-      "time": "a time",
+      "date": "2025-09-10",
+      "time": "09:00",
       "image": "./src/assets/events/Pool_Party.jpg",
       "price": 100,
       "symbol": "€",
       "currency": "EUR",
-      "capacity": 10
+      "capacity": 22
     },
     {
       "id": "2",
       "title": "Sacré bousin",
       "description": "another description",
       "location": "Sterb",
-      "date": "that late",
-      "time": "too late",
+      "date": "2025-09-10",
+      "time": "09:00",
       "image": "./src/assets/events/event_2019.jpg",
       "price": 100,
       "symbol": "€",
       "currency": "EUR",
-      "capacity": 10}
+      "capacity": 10
+    },
+    {
+      "id": "3",
+      "title": "RETRO PARTY",
+      "description": "a description",
+      "location": "a location",
+      "date": "2025-09-10",
+      "time": "09:00",
+      "image": "./src/assets/events/retro_party.png",
+      "price": 100,
+      "symbol": "€",
+      "currency": "EUR",
+      "capacity": 0
+    }
   ]
 }
