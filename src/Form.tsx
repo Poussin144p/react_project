@@ -1,36 +1,64 @@
 import { useState } from "react";
 
-export function Form({ availableSeats, event }: { availableSeats: number, event: any }) {
+export function Form({ event, onUpdate }) {
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
     const [seats, setSeats] = useState(1); 
+    const [availableSeats, setAvailableSeats] = useState(event.capacity);
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        
-        // Créer l'objet de réservation
-        const reservation = {
-            eventId: event.id,
-            title: event.title,
-            date: event.date,
-            time: event.time,
-            location: event.location,
-            seats: seats,
-            price: event.price * seats,
-            currency: event.currency,
-        };
 
-        // Récupérer les réservations existantes depuis localStorage
-        const storedReservations = localStorage.getItem("cart");
-        const reservations = storedReservations ? JSON.parse(storedReservations) : [];
+        if (seats > availableSeats) {
+            alert("Il n'y a pas assez de places disponibles !");
+            return;
+        }
 
-        // Ajouter la nouvelle réservation
-        reservations.push(reservation);
+        // Récupérer le panier existant dans localStorage
+        const storedCart = localStorage.getItem("cart");
+        const cart = storedCart ? JSON.parse(storedCart) : {};
 
-        // Sauvegarder dans localStorage
-        localStorage.setItem("cart", JSON.stringify(reservations));
+        // Vérifier si l'événement est déjà dans le panier
+        if (cart[event.id]) {
+            cart[event.id].seats += seats; // Ajouter les places réservées à l'existant
+        } else {
+            cart[event.id] = {
+                eventId: event.id,
+                title: event.title,
+                date: event.date,
+                time: event.time,
+                location: event.location,
+                seats: seats,
+                price: event.price,
+                currency: event.currency,
+            };
+        }
 
-        alert("Réservation ajoutée au panier !");
+        // Sauvegarder le panier mis à jour
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        // Calculer le nouveau nombre de places disponibles
+        const newCapacity = availableSeats - seats;
+
+        // Mettre à jour `db.json` via l'API REST
+        try {
+            const response = await fetch(`http://localhost:3000/events/${event.id}`, {
+                method: "PATCH",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ capacity: newCapacity })
+            });
+
+            if (!response.ok) {
+                throw new Error("Échec de la mise à jour de la capacité.");
+            }
+
+            // Mettre à jour l'état local après succès
+            setAvailableSeats(newCapacity);
+            onUpdate(newCapacity); // Met à jour le `Detail`
+            alert("Réservation ajoutée au panier !");
+        } catch (error) {
+            console.error("Erreur lors de la mise à jour de l'événement :", error);
+        }
     };
 
     return (
@@ -38,12 +66,9 @@ export function Form({ availableSeats, event }: { availableSeats: number, event:
         <h2 className="text-lg font-bold mb-4">Réserver votre place</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
-              Nom Complet
-            </label>
+            <label className="block text-gray-700 text-sm font-bold mb-2">Nom Complet</label>
             <input
-              className="w-full shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="name"
+              className="w-full shadow appearance-none border rounded py-2 px-3 text-gray-700"
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -52,12 +77,9 @@ export function Form({ availableSeats, event }: { availableSeats: number, event:
           </div>
 
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
-              Email
-            </label>
+            <label className="block text-gray-700 text-sm font-bold mb-2">Email</label>
             <input
-              className="w-full shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="email"
+              className="w-full shadow appearance-none border rounded py-2 px-3 text-gray-700"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -66,12 +88,11 @@ export function Form({ availableSeats, event }: { availableSeats: number, event:
           </div>
 
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="seats">
+            <label className="block text-gray-700 text-sm font-bold mb-2">
               Nombre de places (max {availableSeats})
             </label>
             <select
-              id="seats"
-              className="w-full shadow border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="w-full shadow border rounded py-2 px-3 text-gray-700"
               value={seats}
               onChange={(e) => setSeats(Number(e.target.value))}
               required

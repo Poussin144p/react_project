@@ -1,16 +1,31 @@
 {
   "posts": [
-    { "id": "1", "title": "a title", "views": 100 },
-    { "id": "2", "title": "another title", "views": 200 }
+    {
+      "id": "1",
+      "title": "a title",
+      "views": 100
+    },
+    {
+      "id": "2",
+      "title": "another title",
+      "views": 200
+    }
   ],
   "comments": [
-    { "id": "1", "text": "a comment about post 1", "postId": "1" },
-    { "id": "2", "text": "another comment about post 1", "postId": "1" }
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
   ],
   "profile": {
     "name": "typicode"
   },
-  
   "events": [
     {
       "id": "1",
@@ -23,7 +38,7 @@
       "price": 100,
       "symbol": "€",
       "currency": "EUR",
-      "capacity": 22
+      "capacity": 16
     },
     {
       "id": "2",
@@ -36,7 +51,7 @@
       "price": 100,
       "symbol": "€",
       "currency": "EUR",
-      "capacity": 10
+      "capacity": 9
     },
     {
       "id": "3",
