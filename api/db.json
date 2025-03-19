@@ -35,10 +35,11 @@
       "date": "2025-09-10",
       "time": "09:00",
       "image": "./src/assets/events/Pool_Party.jpg",
-      "price": 100,
+      "price": 50,
       "symbol": "€",
       "currency": "EUR",
-      "capacity": 16
+      "capacity": 30,
+      "category": "Concert"
     },
     {
       "id": "2",
@@ -51,7 +52,8 @@
       "price": 100,
       "symbol": "€",
       "currency": "EUR",
-      "capacity": 9
+      "capacity": 3,
+      "category": "Conférence"
     },
     {
       "id": "3",
@@ -64,7 +66,8 @@
       "price": 100,
       "symbol": "€",
       "currency": "EUR",
-      "capacity": 0
+      "capacity": 0,
+      "category": "Concert"
     }
   ]
 }

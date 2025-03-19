@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 export function Cart() {
-    const [cart, setCart] = useState<any[]>([]);
+    const [cart, setCart] = useState<[]>([]);
 
     useEffect(() => {
         const storedCart = localStorage.getItem("cart");
@@ -10,7 +10,7 @@ export function Cart() {
         }
     }, []);
 
-    const handleRemove = (index: number) => {
+    const handleRemove = (index) => {
         const updatedCart = [...cart];
         updatedCart.splice(index, 1);
         setCart(updatedCart);
