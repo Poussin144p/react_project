@@ -13,7 +13,6 @@ export function Detail({ eventId }) {
     }
   }, [eventId]);
 
-  // Fonction pour mettre à jour la capacité après réservation
   const handleUpdateCapacity = (newCapacity) => {
     setEvent((prevEvent) => ({
       ...prevEvent,
@@ -27,7 +26,6 @@ export function Detail({ eventId }) {
 
   return (
     <div className="flex w-full p-6 bg-white shadow-md rounded-lg">
-      {/* Image et description */}
       <div className="w-1/3 p-4">
         <img 
           src={event.image} 
@@ -37,7 +35,6 @@ export function Detail({ eventId }) {
         <p className="text-gray-700 mt-4">{event.description}</p>
       </div>
 
-      {/* Détails de l'événement */}
       <div className="ml-10 w-2/3">
         <h2 className="text-xl font-bold text-gray-900">{event.title}</h2>
         <p className="text-sm text-gray-600 font-sans font-bold mt-2">
@@ -49,7 +46,6 @@ export function Detail({ eventId }) {
           💰 {event.price} {event.symbol} ({event.currency})
         </p>
         
-        {/* Formulaire de réservation */}
         <div className="mt-4">
           <Form event={event} onUpdate={handleUpdateCapacity} />
         </div>

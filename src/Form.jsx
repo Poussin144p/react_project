@@ -12,13 +12,11 @@ export function Form({ event, onUpdate }) {
             return;
         }
 
-        // Récupérer le panier existant dans localStorage
         const storedCart = localStorage.getItem("cart") ;
         const cart = storedCart ? JSON.parse(storedCart) : {};
 
-        // Vérifier si l'événement est déjà dans le panier
         if (cart[event.id]) {
-            cart[event.id].seats += seats; // Ajouter les places réservées à l'existant
+            cart[event.id].seats += seats; 
         } else {
             cart[event.id] = {
                 eventId: event.id,
@@ -32,13 +30,10 @@ export function Form({ event, onUpdate }) {
             };
         }
 
-        // Sauvegarder le panier mis à jour
         localStorage.setItem("cart", JSON.stringify(cart));
 
-        // Calculer le nouveau nombre de places disponibles
         const newCapacity = availableSeats - seats;
 
-        // Mettre à jour `db.json` via l'API REST
         try {
             const response = await fetch(`http://localhost:3000/events/${event.id}`, {
                 method: "PATCH",
@@ -50,9 +45,8 @@ export function Form({ event, onUpdate }) {
                 throw new Error("Échec de la mise à jour de la capacité.");
             }
 
-            // Mettre à jour l'état local après succès
             setAvailableSeats(newCapacity);
-            onUpdate(newCapacity); // Met à jour le `Detail`
+            onUpdate(newCapacity); 
             alert("Réservation ajoutée au panier !");
         } catch (error) {
             console.error("Erreur lors de la mise à jour de l'événement :", error);
