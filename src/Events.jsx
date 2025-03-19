@@ -8,6 +8,7 @@ export function Events({ onEventClick }) {
   const [category, setCategory] = useState('all');
   const [sortBy, setSortBy] = useState('default');
   const [dateFilter, setDateFilter] = useState('all');
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     fetch('http://localhost:3000/events')
@@ -15,6 +16,10 @@ export function Events({ onEventClick }) {
       .then((data) => {
         setEvents(data);
         setFilteredEvents(data);
+
+        // Extraire les catégories uniques
+        const uniqueCategories = [...new Set(data.map(event => event.category))];
+        setCategories(uniqueCategories);
       })
       .catch((error) => console.error('Error fetching events:', error));
   }, []);
@@ -66,8 +71,9 @@ export function Events({ onEventClick }) {
           onChange={(e) => setCategory(e.target.value)}
         >
           <option value="all">Toutes les catégories</option>
-          <option value="Concert">Concert</option>
-          <option value="Conférence">Conférence</option>
+          {categories.map((cat) => (
+            <option key={cat} value={cat}>{cat}</option>
+          ))}
         </select>
 
         <select
