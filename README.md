@@ -1,50 +1,94 @@
-# React + TypeScript + Vite
+Plateforme de Réservation d'Événements
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ce projet est une plateforme web permettant aux utilisateurs de découvrir des événements, de réserver leurs places et de gérer leurs réservations.
 
-Currently, two official plugins are available:
+Fonctionnalités principales
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+L'application suit le cahier des charges et propose les fonctionnalités suivantes :
 
-## Expanding the ESLint configuration
+Page d’accueil :
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Liste des événements sous forme de cartes avec visuel, titre, date, lieu et prix.
 
-- Configure the top-level `parserOptions` property like this:
+Filtres dynamiques par date, catégorie et prix.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Recherche par mot-clé.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Page détaillée d’un événement :
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Description complète (image, texte, lieu, date, organisateur).
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Formulaire dynamique de réservation avec validation des champs.
+
+Limitation des réservations selon le nombre de places disponibles.
+
+Gestion du panier :
+
+Page récapitulant les réservations (nom de l'événement, date, prix total).
+
+Option pour modifier ou supprimer des réservations.
+
+Calcul dynamique du total.
+
+Persistance des données :
+
+Sauvegarde des réservations dans le Local Storage.
+
+Récupération automatique des données sauvegardées.
+
+UI/UX :
+
+Design clair, intuitif et responsive.
+
+Bonus : Implémentation d'un mode sombre.
+
+Installation et lancement
+
+Installer les dépendances :
+
+npm install
+
+Démarrer l'application :
+
+npm run dev
+
+Lancer le serveur JSON pour les données :
+
+npx json-server api/db.json
+
+Technologies utilisées
+
+React.js pour l'interface utilisateur.
+
+React Router pour la navigation.
+
+Local Storage pour la persistance des données.
+
+JSON Server pour la gestion des données en local.
+
+Équipe
+
+Ce projet a été réalisé par :
+
+[Nom 1]
+
+[Nom 2]
+
+[Nom 3]
+
+Justification des choix techniques
+
+React.js : Framework moderne et performant pour le développement web.
+
+React Router : Gestion efficace de la navigation.
+
+JSON Server : Simule une API REST pour gérer les événements et réservations.
+
+Local Storage : Permet de conserver les réservations entre les sessions.
+
+Remarques
+
+Toutes les fonctionnalités principales attendues ont été implémentées.
+
+Des améliorations futures pourraient inclure des optimisations de performance et des ajouts de fonctionnalités.
+
