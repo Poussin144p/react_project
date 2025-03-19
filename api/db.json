@@ -1,73 +1,74 @@
 {
-  "posts": [
-    {
-      "id": "1",
-      "title": "a title",
-      "views": 100
-    },
-    {
-      "id": "2",
-      "title": "another title",
-      "views": 200
-    }
-  ],
-  "comments": [
-    {
-      "id": "1",
-      "text": "a comment about post 1",
-      "postId": "1"
-    },
-    {
-      "id": "2",
-      "text": "another comment about post 1",
-      "postId": "1"
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  },
   "events": [
     {
       "id": "1",
-      "title": "a title",
-      "description": "a description",
-      "location": "a location",
-      "date": "2025-09-10",
-      "time": "09:00",
-      "image": "./src/assets/events/Pool_Party.jpg",
-      "price": 50,
+      "title": "Soirée DJ Electro/Techno",
+      "description": "Venez vibrer au rythme des meilleurs DJ de la scène électro.",
+      "location": "Paris, France",
+      "date": "2025-07-15",
+      "time": "22:00",
+      "image": "/DJ.webp",
+      "price": 30,
       "symbol": "€",
       "currency": "EUR",
-      "capacity": 30,
+      "capacity": 200,
       "category": "Concert"
     },
     {
       "id": "2",
-      "title": "Sacré bousin",
-      "description": "another description",
-      "location": "Sterb",
-      "date": "2025-09-10",
-      "time": "09:00",
-      "image": "./src/assets/events/event_2019.jpg",
-      "price": 100,
+      "title": "Festival du Film Indépendant",
+      "description": "Découvrez des courts-métrages et longs-métrages réalisés par de nouveaux talents.",
+      "location": "Lyon, France",
+      "date": "2025-08-20",
+      "time": "18:00",
+      "image": "/film.webp",
+      "price": 15,
       "symbol": "€",
       "currency": "EUR",
-      "capacity": 4,
-      "category": "Conférence"
+      "capacity": 100,
+      "category": "Cinéma"
     },
     {
       "id": "3",
-      "title": "RETRO PARTY",
-      "description": "a description",
-      "location": "a location",
-      "date": "2025-09-10",
-      "time": "09:00",
-      "image": "./src/assets/events/retro_party.png",
-      "price": 100,
+      "title": "Atelier de Peinture Abstraite",
+      "description": "Initiez-vous à l'art abstrait avec un artiste reconnu.",
+      "location": "Marseille, France",
+      "date": "2025-09-05",
+      "time": "14:00",
+      "image": "/peint.webp",
+      "price": 40,
       "symbol": "€",
       "currency": "EUR",
-      "capacity": 0,
-      "category": "Concert"
+      "capacity": 20,
+      "category": "Atelier"
+    },
+    {
+      "id": "4",
+      "title": "Randonnée Nocturne en Montagne",
+      "description": "Découvrez les paysages nocturnes sous la lueur de la lune.",
+      "location": "Chamonix, France",
+      "date": "2025-09-25",
+      "time": "21:00",
+      "image": "/rando.webp",
+      "price": 20,
+      "symbol": "€",
+      "currency": "EUR",
+      "capacity": 15,
+      "category": "Sport"
+    },
+    {
+      "id": "5",
+      "title": "Dégustation de Vins et Fromages",
+      "description": "Explorez les saveurs uniques des meilleurs vins et fromages français.",
+      "location": "Bordeaux, France",
+      "date": "2025-10-10",
+      "time": "19:30",
+      "image": "/vin.webp",
+      "price": 60,
+      "symbol": "€",
+      "currency": "EUR",
+      "capacity": 25,
+      "category": "Gastronomie"
     }
   ]
 }

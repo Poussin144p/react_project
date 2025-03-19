@@ -40,6 +40,7 @@ export function Detail({ eventId }) {
         <p className="text-sm text-gray-600 font-sans font-bold mt-2">
           {new Date(event.date).toLocaleDateString("fr-FR")} à {event.time}
         </p>
+        <p className="text-gray-800 font-medium mt-1">🎭 {event.category}</p>
         <p className="text-gray-800 font-medium mt-1">📍 {event.location}</p>
         <p className="text-gray-800 font-medium mt-1">🎟️ {event.capacity} places disponibles</p>
         <p className="text-lg font-bold text-green-600 mt-2">

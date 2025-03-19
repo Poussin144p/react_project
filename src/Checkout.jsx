@@ -36,17 +36,17 @@ export function Checkout() {
 
     return (
         <div className="container mx-auto p-4">
-            <h2 className="text-2xl font-bold mb-4">Checkout</h2>
+            <h2 className="text-2xl font-bold mb-4">Panier</h2>
             <div className="bg-white shadow-md rounded-lg p-4">
                 {tickets.length === 0 ? (
-                    <p>No tickets in the cart.</p>
+                    <p>Pas de places dans votre panier</p>
                 ) : (
                     tickets.map(ticket => (
                         <TicketCard key={ticket.eventId} ticket={ticket} onUpdate={updateTicketSeats} onRemove={removeTicket} />
                     ))
                 )}
                 <div className="text-right font-bold mt-4">
-                    Global Total: {calculateTotal().toFixed(2)}€
+                    Total: {calculateTotal().toFixed(2)}€
                 </div>
             </div>
         </div>
